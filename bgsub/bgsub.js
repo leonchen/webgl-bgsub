@@ -14,14 +14,14 @@ var bgLoaded = false;
 var sampleTexture;
 var sampleLoaded = false;
 
-new THREE.TextureLoader().load('./bg.png', function (texture) {
+new THREE.TextureLoader().load('../static/bg.png', function (texture) {
   bgTexture = texture;
   bgTexture.minFilter = THREE.LinearFilter;
   bgTexture.magFilter = THREE.LinearFilter;
   bgLoaded = true;
   run();
 });
-// new THREE.TextureLoader().load('./sample.png', function (texture) {
+// new THREE.TextureLoader().load('../static/sample.png', function (texture) {
 //   sampleTexture = texture;
 //   sampleTexture.minFilter = THREE.NearestFilter;
 //   sampleTexture.magFilter = THREE.NearestFilter;
@@ -60,7 +60,7 @@ void main() {
   if (diff.x >= threshold || diff.y >= threshold || diff.z >= threshold) {
     gl_FragColor = vec4(sc.rgb, 1.0);
   } else {
-    gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
+    gl_FragColor = vec4(bc.rgb, 1.0);
   }
 }
 `;
